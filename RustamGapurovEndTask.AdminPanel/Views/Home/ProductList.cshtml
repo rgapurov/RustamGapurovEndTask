@@ -1,0 +1,59 @@
+﻿@model IEnumerable<RustamGapurovEndTask.EntityLayer.Concrete.Entities.Product>
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ürün Listesi</h1>
+
+    <a class="btn btn-outline-primary" asp-area="" asp-controller="Home" asp-action="AddProduct">Yeni Ürün Ekle</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Ürün Adı
+            </th>
+            <th>
+                Miktar
+            </th>
+             <th>
+                Fiyat
+            </th>
+            <th>
+                Oluşturma Tarihi
+            </th>
+            <th>
+                Kategori
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th>
+                 @Html.DisplayFor(modelItem => item.Id)
+            </th>
+            <th>
+                 @Html.DisplayFor(modelItem => item.Name)
+            </th>
+            <th>
+                 @Html.DisplayFor(modelItem => item.Quantity)
+            </th>
+             <th>
+                 @Html.DisplayFor(modelItem => item.Price)
+            </th>
+            <th>
+                 @Html.DisplayFor(modelItem => item.CreateDate)
+            </th>
+            <th>
+                 @Html.DisplayFor(modelItem => item.Category)
+            </th>
+        </tr>
+}
+    </tbody>
+</table>
+
