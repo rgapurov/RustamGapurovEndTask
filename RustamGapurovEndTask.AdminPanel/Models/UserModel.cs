@@ -1,9 +1,9 @@
-﻿namespace RustamGapurovEndTask.AdminPanel.Models
+﻿using RustamGapurovEndTask.EntityLayer.Concrete.Entities;
+
+namespace RustamGapurovEndTask.AdminPanel.Models
 {
-    public class UserModel
+    public class UserModel:User
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }        
+           
     }
 }
