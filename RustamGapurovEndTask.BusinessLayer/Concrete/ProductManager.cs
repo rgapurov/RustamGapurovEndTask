@@ -1,30 +1,47 @@
-﻿using RustamGapurovEndTask.DataAccessLayer.Concrete.Repositories;
+﻿using RustamGapurovEndTask.BusinessLayer.Abstract;
+using RustamGapurovEndTask.DataAccessLayer.Concrete.Repositories;
 using RustamGapurovEndTask.EntityLayer.Concrete.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RustamGapurovEndTask.BusinessLayer.Concrete
 {
-    public class ProductManager
+    public class ProductManager: IService<Product>
     {
         GenericRepository<Product> _product = new GenericRepository<Product>();
-        public List<Product> ListProduct()
+
+        public void Add(Product p)
+        {
+            _product.Insert(p);
+        }
+
+        public void Delete(Product p)
+        {
+            _product.Delete(p);
+        }
+
+        public Product GetById(int id)
+        {
+            return _product.Get(x => x.Id == id);
+        }
+
+        public List<Product> List()
         {
             return _product.List();
         }
 
-        public void AddProduct(Product product)
+        public List<Product> List(Expression<Func<Product, bool>> filter)
         {
-            _product.Insert(product);
+            return _product.List(filter);
         }
 
-        public void DeleteProduct(Product product)
+        public void Update(Product p)
         {
-            _product.Delete(product);
-            
+            _product.Update(p);
         }
     }
 }

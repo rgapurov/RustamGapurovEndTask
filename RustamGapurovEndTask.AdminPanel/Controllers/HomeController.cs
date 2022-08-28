@@ -22,46 +22,46 @@ namespace RustamGapurovEndTask.AdminPanel.Controllers
 
 
         
-        public IActionResult AddCategoryView()
-        {
-            List<Category> categories = _categoryManager.GetAll();
-            return View(categories);
-        }
+        //public IActionResult AddCategoryView()
+        //{
+        //    //List<Category> categories = _categoryManager.GetAll();
+        //    //return View(categories);
+        //}
 
-        public IActionResult AddProductView()
-        {
-            return View();
-        }
+        //public IActionResult AddProductView()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult UserView()
-        {
-            List<User> users = _userManager.ListUser();
-            return View(users);
-        }
-        [HttpGet]
+        //public IActionResult UserView()
+        //{
+        //    List<User> users = _userManager.ListUser();
+        //    return View(users);
+        //}
+        //[HttpGet]
 
 
-        [HttpPost]
-        public IActionResult AddProduct(ProductModel p)
-        {
-            Product product = new Product();
-            product.Name = p.Name;
-            product.Price = p.Price;
-            product.Quantity = p.Quantity;
-            product.CategoryId = p.CategoryId;
-            product.CreateDate = DateTime.Now;
-            product.TagId = p.TagId;
+        //[HttpPost]
+        //public IActionResult AddProduct(ProductModel p)
+        //{
+        //    Product product = new Product();
+        //    product.Name = p.Name;
+        //    product.Price = p.Price;
+        //    product.Quantity = p.Quantity;
+        //    product.CategoryId = p.CategoryId;
+        //    product.CreateDate = DateTime.Now;
+        //    product.TagId = p.TagId;
 
-            _productManager.AddProduct(product);
+        //    _productManager.AddProduct(product);
 
-            return RedirectToAction("ProductList");
-        }
+        //    return RedirectToAction("ProductList");
+        //}
 
-        public IActionResult DeleteProduct(Product p)
-        {
-            _productManager.DeleteProduct(p);
-            return RedirectToAction("Index");
-        }
+        //public IActionResult DeleteProduct(Product p)
+        //{
+        //    _productManager.DeleteProduct(p);
+        //    return RedirectToAction("Index");
+        //}
 
 
         public IActionResult Index()
@@ -69,12 +69,12 @@ namespace RustamGapurovEndTask.AdminPanel.Controllers
             return View();
 
         }
-        public IActionResult ProductList()
-        {
-            List<Product> ListModel = _productManager.ListProduct();
-            return View(ListModel);
+        //public IActionResult ProductList()
+        //{
+        //    List<Product> ListModel = _productManager.ListProduct();
+        //    return View(ListModel);
 
-        }
+        //}
 
 
 
