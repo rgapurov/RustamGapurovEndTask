@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RustamGapurovEndTask.BusinessLayer\RustamGapurovEndTask.BusinessLayer.csproj" />
+  </ItemGroup>
+
 </Project>

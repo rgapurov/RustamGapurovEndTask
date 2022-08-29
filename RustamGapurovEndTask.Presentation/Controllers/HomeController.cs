@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RustamGapurovEndTask.BusinessLayer.Concrete;
+using RustamGapurovEndTask.EntityLayer.Concrete.Entities;
 using RustamGapurovEndTask.Presentation.Models;
 using System.Diagnostics;
 
@@ -6,6 +8,8 @@ namespace RustamGapurovEndTask.Presentation.Controllers
 {
     public class HomeController : Controller
     {
+        ProductManager _product = new ProductManager();
+        Product _singleProduct;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -15,7 +19,8 @@ namespace RustamGapurovEndTask.Presentation.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var products = _product.List(x => x.Quantity > 1);
+            return View(products);
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using RustamGapurovEndTask.EntityLayer.Concrete.Entities;
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Ürünler Listesi</h1>
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-3 p-2">
+            <div class="bg-light p-2" style="box-shadow: 5px 5px 10px gray;">
+                <div class="row">
+                    <div class="col-7">
+                        <b>@product.Name</b><br/>
+                        <i>@product.CategoryId</i><br/>
+                    </div>
+                    <div class="col-5 text-end">
+                        <b>@product.Price</b><br/>
+                        <a class="btn btn-outline-success m-2" href="/Home/Buy/@product.Id" >Satın Al</a>
+                    </div> 
+                </div>               
+            </div>
+        </div>        
+    }
+
 </div>
+
