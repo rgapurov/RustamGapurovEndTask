@@ -4,11 +4,14 @@ using RustamGapurovEndTask.EntityLayer.Concrete.Entities;
 using RustamGapurovEndTask.Presentation.Models;
 using System.Diagnostics;
 
+
+
 namespace RustamGapurovEndTask.Presentation.Controllers
 {
     public class HomeController : Controller
     {
         ProductManager _product = new ProductManager();
+        CategoryManager _category = new CategoryManager();  
         Product _singleProduct;
         private readonly ILogger<HomeController> _logger;
 
@@ -21,6 +24,12 @@ namespace RustamGapurovEndTask.Presentation.Controllers
         {
             var products = _product.List(x => x.Quantity > 1);
             return View(products);
+        }
+        
+        public IActionResult CategoryBar()
+        {
+            List<Category> cat = _category.List();
+            return PartialView(cat);
         }
 
         public IActionResult Privacy()

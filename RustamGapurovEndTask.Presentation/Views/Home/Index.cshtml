@@ -6,6 +6,7 @@
 }
 
 <h1>Ürünler Listesi</h1>
+
 <div class="row">
     @foreach (var product in Model)
     {
@@ -17,10 +18,12 @@
                         <i>@product.CategoryId</i><br/>
                     </div>
                     <div class="col-5 text-end">
-                        <b>@product.Price</b><br/>
-                        <a class="btn btn-outline-success m-2" href="/Home/Buy/@product.Id" >Satın Al</a>
+                        <b>@product.Price</b><br/>                        
                     </div> 
-                </div>               
+                </div> 
+                <div class="text-end">
+                    <a class="btn btn-outline-success m-2" href="/Home/Buy/@product.Id" >Satın Al</a>
+                </div>
             </div>
         </div>        
     }
