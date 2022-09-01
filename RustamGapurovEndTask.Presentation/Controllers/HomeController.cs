@@ -28,8 +28,7 @@ namespace RustamGapurovEndTask.Presentation.Controllers
         
         public IActionResult CategoryBar()
         {
-            List<Category> cat = _category.List();
-            return PartialView(cat);
+            return RedirectToAction("Index"); 
         }
 
         public IActionResult Privacy()

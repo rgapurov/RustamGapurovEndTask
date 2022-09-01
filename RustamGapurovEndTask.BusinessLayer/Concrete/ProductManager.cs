@@ -13,6 +13,7 @@ namespace RustamGapurovEndTask.BusinessLayer.Concrete
     public class ProductManager: IService<Product>
     {
         GenericRepository<Product> _product = new GenericRepository<Product>();
+        Product _singleProduct;
 
         public void Add(Product p)
         {
@@ -42,6 +43,12 @@ namespace RustamGapurovEndTask.BusinessLayer.Concrete
         public void Update(Product p)
         {
             _product.Update(p);
+        }
+        public void Buy(int id, int quantity )
+        {
+            _singleProduct = GetById(id);
+            _singleProduct.Quantity = _singleProduct.Quantity - quantity;
+            Update(_singleProduct);
         }
     }
 }
